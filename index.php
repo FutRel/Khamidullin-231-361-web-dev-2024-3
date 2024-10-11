@@ -6,6 +6,13 @@
     <title><?php echo 'Хамидуллин Михаил Константинович - Группа 231-361 - Лабораторная работа №3'; ?></title>
     <link rel="stylesheet" href="styles.css">
 </head>
+<?php
+$menu_items = [
+    ['url' => 'index.php', 'title' => 'Главная'],
+    ['url' => 'about.php', 'title' => 'О нас'],
+    ['url' => 'contact.php', 'title' => 'Контакты']
+];
+?>
 <body>
     <header>
         <nav>

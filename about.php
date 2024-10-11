@@ -6,6 +6,13 @@
     <title><?php echo 'О нас - Хамидуллин Михаил Константинович - Лабораторная работа №3'; ?></title>
     <link rel="stylesheet" href="styles.css">
 </head>
+<?php
+$menu_items = [
+    ['url' => 'index.php', 'title' => 'Главная'],
+    ['url' => 'about.php', 'title' => 'О нас'],
+    ['url' => 'contact.php', 'title' => 'Контакты']
+];
+?>
 <body>
     <header>
         <nav>
