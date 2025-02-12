@@ -9,6 +9,15 @@ $menu_items = [
     ['url' => 'about.php', 'title' => 'О нас'],
     ['url' => 'contact.php', 'title' => 'Контакты']
 ];
+
+function get_active_class($url) {
+    return ($url == basename($_SERVER['PHP_SELF'])) ? 'active' : '';
+}
+
+function generate_menu_item($url, $title) {
+    $active_class = get_active_class($url);
+    return '<li><a href="' . $url . '" class="' . $active_class . '">' . $title . '</a></li>';
+}
 ?>
 
 <head>
@@ -24,8 +33,7 @@ $menu_items = [
             <ul>
                 <?php
                 foreach ($menu_items as $item) {
-                    $active_class = ($item['url'] == basename($_SERVER['PHP_SELF'])) ? 'active' : '';
-                    echo '<li><a href="' . $item['url'] . '" class="' . $active_class . '">' . $item['title'] . '</a></li>';
+                    echo generate_menu_item($item['url'], $item['title']);
                 }
                 ?>
             </ul>
@@ -41,7 +49,6 @@ $menu_items = [
         <h2>Наши контакты</h2>
         <ul>
             <?php
-            $contacts = ['Email: info@example.com', 'Телефон: +7 (123) 456-78-90'];
             foreach ($contacts as $contact) {
                 echo '<li>' . $contact . '</li>';
             }
@@ -50,7 +57,9 @@ $menu_items = [
     </main>
 
     <footer>
-        <p>Сформировано <?php echo date('d.m.Y в H:i:s'); ?></p>
+        <p>Сформировано <?php
+        date_default_timezone_set('Europe/Moscow');
+        echo date('d.m.Y в H:i:s'); ?></p>
     </footer>
 </body>
 
